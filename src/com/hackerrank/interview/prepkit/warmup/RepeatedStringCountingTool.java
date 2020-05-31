@@ -11,15 +11,21 @@ public class RepeatedStringCountingTool {
     private static final char ALPHABET_A = 'a';
     public static void main(String[] args) {
 
-        String inputString = "abcac";
+        /*String inputString = "abcac";
+        long n = 10;
+        */
+
+          //Test case #2
+        String inputString = "aba";
         long n = 10;
 
-        /*String inputString = "aba";
-        long n = 10;*/
+        // Test case #3
+        /*String inputString = "a";
+        long n = 1000000000000L;*/
 
         long repetitionCount = repeatedString(inputString, n);
 
-        //System.out.println("Repetition count is : " + repetitionCount);
+        System.out.println("Repetition count is : " + repetitionCount);
     }
     // Complete the repeatedString function below.
     static long repeatedString(String inputString, long allowedCount) {
@@ -29,18 +35,18 @@ public class RepeatedStringCountingTool {
 
         //Check for No 'a' character present
         if(firstIndex == -1){
-            System.out.println("No matching character found");
+            //System.out.println("No matching character found");
             return repetitionCount;
         }
 
         long characterCount = countCharacter(inputString);
-        double charCountStrLengthRatio = ((double) characterCount / inputStringLength); //((double) characterCount / inputStringLength);
-        System.out.println(" allowedCount = " + allowedCount + " characterCount = " + characterCount
+        double charCountStrLengthRatio = ((double) characterCount / inputStringLength);
+        /*System.out.println(" allowedCount = " + allowedCount + " characterCount = " + characterCount
                          + " input str length = " + inputStringLength);
         System.out.println("(characterCount / inputStringLength) = " + charCountStrLengthRatio);
-        System.out.println("Repetition count (double val) : " + Math.ceil(allowedCount * (charCountStrLengthRatio)));
-        repetitionCount = (long) (allowedCount * (charCountStrLengthRatio));
-        System.out.println("Repetition count : " + repetitionCount);
+        System.out.println("Repetition count (double val) : " + Math.ceil(allowedCount * (charCountStrLengthRatio)));*/
+        repetitionCount = (new Double(Math.ceil(allowedCount * (charCountStrLengthRatio) ))).longValue();
+        //System.out.println("Repetition count (long val): " + repetitionCount);
 
         return repetitionCount;
     }
@@ -51,10 +57,11 @@ public class RepeatedStringCountingTool {
         for (char currentCharacter :
                 s.toCharArray()) {
             if(ALPHABET_A == currentCharacter) {
-                System.out.println("current characterCount is : " + characterCount++);
+                characterCount++;
+                //System.out.println("current characterCount is : " + characterCount);
             }
         }
-        System.out.println("Final characterCount is : " + characterCount);
+        //System.out.println("Final characterCount is : " + characterCount);
         return characterCount;
     }
 }
