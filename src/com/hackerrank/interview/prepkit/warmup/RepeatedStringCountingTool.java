@@ -17,7 +17,7 @@ public class RepeatedStringCountingTool {
 
           //Test case #2
         String inputString = "aba";
-        long n = 10;
+        long n = 11;
 
         // Test case #3
         /*String inputString = "a";
@@ -41,12 +41,13 @@ public class RepeatedStringCountingTool {
 
         long characterCount = countCharacter(inputString);
         double charCountStrLengthRatio = ((double) characterCount / inputStringLength);
-        /*System.out.println(" allowedCount = " + allowedCount + " characterCount = " + characterCount
+        System.out.println(" allowedCount = " + allowedCount + " characterCount = " + characterCount
                          + " input str length = " + inputStringLength);
         System.out.println("(characterCount / inputStringLength) = " + charCountStrLengthRatio);
-        System.out.println("Repetition count (double val) : " + Math.ceil(allowedCount * (charCountStrLengthRatio)));*/
-        repetitionCount = (new Double(Math.ceil(allowedCount * (charCountStrLengthRatio) ))).longValue();
-        //System.out.println("Repetition count (long val): " + repetitionCount);
+        System.out.println("allowedCount * (charCountStrLengthRatio) : " + allowedCount * (charCountStrLengthRatio));
+        System.out.println("Repetition count (double val) : " + Math.round(allowedCount * (charCountStrLengthRatio)));
+        repetitionCount = (new Double(Math.round(allowedCount * (charCountStrLengthRatio) ))).longValue();
+        System.out.println("Repetition count (long val): " + repetitionCount);
 
         return repetitionCount;
     }
