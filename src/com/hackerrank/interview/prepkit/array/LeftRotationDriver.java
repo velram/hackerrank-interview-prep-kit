@@ -16,8 +16,57 @@ public class LeftRotationDriver {
 
         //Input section
 
-        int[] inputArray = {1,2,3,4,5,6};
+        //Case #1 - Normal flow
+       /* */
+        int[] inputArray = {1,2,3,4,5,6,7,8};
         int rotationCount = 3;
+
+        //Case #2 - Edge case - Rotate count = array size
+
+       /*
+         int[] inputArray = {1,2,3,4,5,6};
+         int rotationCount = 6;
+        */
+
+        //Case #3 - Max rotate count possible
+
+         /*
+            int[] inputArray = {1,2,3,4,5,6};
+            int rotationCount = 5;
+        */
+
+        //Case #4 - Average case (arraySize / 2)
+        /*
+
+          int[] inputArray = {1,2,3,4,5,6};
+          int rotationCount = 3;
+        */
+
+        //Case #5 - Min possible rotation
+        /*
+        int[] inputArray = {1,2,3,4,5,6};
+        int rotationCount = 1;
+        */
+
+
+        //Case #6 - Larger array input
+        /*
+
+        int[] inputArray = {33,47,70,37,8,53,13,93,71,72,51,100,60,87,97};
+        int rotationCount = 13;
+        */
+
+        //Case #7 - Smaller input array and smaller rotation
+        /*
+        int[] inputArray = {1,2};
+        int rotationCount = 1;
+        */
+
+        //Case #8 - Single element array and smaller rotation
+        /*
+        int[] inputArray = {1};
+        int rotationCount = 1;
+        */
 
         int[] rotatedArray = leftRotater.rotLeft(inputArray, rotationCount);
 
@@ -27,9 +76,10 @@ public class LeftRotationDriver {
 
     private static void displayArray(int[] rotatedArray) {
 
+        System.out.println("\n\n Display array elements : \n\n ");
         for (int currentElement :
                 rotatedArray) {
-            System.out.println(" Current element : " + currentElement);
+            System.out.print(" " + currentElement);
         }
     }
 }
@@ -43,12 +93,32 @@ class LeftRotationTool {
             return inputArray;
         }
 
-        int result[] = new int[inputArray.length];
+        int result[] = performRotation(inputArray, rotationCount);
 
-        //perform array rotation
 
-        performRotation(inputArray, )
+        return result;
+    }
 
+    private int[] performRotation(int[] inputArray, int rotationCount) {
+
+
+        int arraySize = inputArray.length;
+        int result[] = new int[arraySize];
+        int resultArrayIndex = 0;
+
+        System.out.println("Array size : " + arraySize + " \n");
+
+        for(int loopIndex = rotationCount ; loopIndex < arraySize ; loopIndex++ ) {
+            System.out.println("loopIndex : " + loopIndex + " | resultArray-element : " + inputArray[loopIndex]
+                                +  " newArrayIndex : " + resultArrayIndex);
+            result[resultArrayIndex++] = inputArray[loopIndex];
+        }
+
+        for(int loopIndex = 0 ; loopIndex < rotationCount ; loopIndex++ ) {
+            System.out.println("loopIndex : " + loopIndex + " | resultArray-element : " + inputArray[loopIndex]
+                    +  " newArrayIndex : " + resultArrayIndex);
+            result[resultArrayIndex++] = inputArray[loopIndex];
+        }
 
         return result;
     }
